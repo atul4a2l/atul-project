@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center" *ngIf="!data">
+    <div class="spinner-border text-info" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+<div class="row" *ngIf="data" [sortablejs]="data">
+    <div class="col-lg-3 col-md-4" *ngFor="let d of data">
+      <div class="card text-center mb-3">
+        <img class="img-fluid" src="{{d.image || 'assets/no-image.png'}}" style="height: 120px;">
+        <div class="card-body">
+          <h4 class="card-title" style="background-color: lavenderblush;">{{d.name}}</h4>
+          <h6 class="text-dark">{{d.author}} (Author)</h6>
+          <p class="card-text">{{ (d.description.length>6) ? (d.description | slice:0:30)+'...':(d.description) }}</p>
+        </div>
+        <div class="card-footer bg-info text-light border-success ">KEY: {{d.key}}</div>
+      </div>
+    </div>
+  </div>

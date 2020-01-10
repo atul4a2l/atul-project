@@ -3,16 +3,32 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
+import { HttpService } from './services/http.service';
+import { GeneralProductsComponent } from './components/general-products/general-products.component';
+import { OtherProductsComponent } from './components/other-products/other-products.component'
+import { DragDropModule } from '@angular/cdk/drag-drop'
+import { SortablejsModule,SortablejsOptions } from 'ngx-sortablejs';
+import { SortableCardComponent } from './components/sortable-card/sortable-card.component'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GeneralProductsComponent,
+    OtherProductsComponent,
+    SortableCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    DragDropModule,
+    SortablejsModule.forRoot({ animation: 1200 }),
   ],
-  providers: [],
+  providers: 
+  [
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

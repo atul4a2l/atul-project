@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'atul-project';
+  navLinks: any[];
+  constructor() {
+    this.navLinks = [
+      {
+          label: 'General',
+          link: './general',
+      }, {
+          label: 'Other',
+          link: './other',
+      } 
+  ];
+  }
+
+  ngOnInit() {
+  }
 }
